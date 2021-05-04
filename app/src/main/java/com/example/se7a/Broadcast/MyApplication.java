@@ -1,0 +1,48 @@
+package com.example.se7a.Broadcast;
+
+import android.annotation.TargetApi;
+import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
+
+import static com.example.se7a.Broadcast.TaskAlarmBroadCast.channelID;
+import static com.example.se7a.Broadcast.TaskAlarmBroadCast.channelName;
+
+
+public class MyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        createNotificationChannels();
+    }
+    public static final String CHANNEL_1_ID = "channel1";
+    public static final String CHANNEL_2_ID = "channel2";
+
+
+    private void createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel1 = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Channel 1",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel1.setDescription("This is Channel 1");
+            NotificationChannel channel2 = new NotificationChannel(
+                    CHANNEL_2_ID,
+                    "Channel 2",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel2.setDescription("This is Channel 2");
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel1);
+            manager.createNotificationChannel(channel2);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private void createChannel() {
+
+
+    }
+}

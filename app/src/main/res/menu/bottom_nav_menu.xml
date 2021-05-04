@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/exercise"
+        android:icon="@drawable/exercise"
+        android:title="التمرينات" />
+
+    <item
+        android:id="@+id/follow_up"
+        android:icon="@drawable/check"
+        android:title="المتابعة" />
+    <item
+        android:id="@+id/pills"
+        android:icon="@drawable/drug"
+        android:title="الأدوية" />
+
+
+
+</menu>
